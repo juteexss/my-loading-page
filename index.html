@@ -121,10 +121,48 @@
     </div>
     <div id="start-soon" onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">It's going to start soon...</div>
 
-    <audio autoplay loop>
-        <source src="https://www.myinstants.com/media/sounds/cyberpunk-2077-mix.mp3" type="audio/mpeg">
+      <!-- Включение аудио -->
+    <audio id="audio" autoplay loop volume="0.2">
+        <source src="Больше ничего(polnalyubvi).mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+
+    <!-- Элементы управления аудио -->
+    <div class="audio-controls">
+        <!-- Кнопка воспроизведения/паузы -->
+        <button id="playPauseButton">&#9658;</button>
+        <!-- Ползунок громкости -->
+        <div class="volume-slider">
+            <input type="range" min="0" max="1" step="0.01" value="0.2" id="volumeControl">
+        </div>
+    </div>
+
+    <script>
+        // Получаем ссылку на аудио
+        var audio = document.getElementById("audio");
+
+        // Получаем ссылку на кнопку воспроизведения/паузы
+        var playPauseButton = document.getElementById("playPauseButton");
+
+        // Функция для воспроизведения/паузы аудио
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.innerHTML = "&#10074;&#10074;"; // Изменяем значок на паузу
+            } else {
+                audio.pause();
+                playPauseButton.innerHTML = "&#9658;"; // Изменяем значок на воспроизведение
+            }
+        }
+
+        // Привязываем функцию к событию нажатия на кнопку воспроизведения/паузы
+        playPauseButton.addEventListener("click", togglePlayPause);
+
+        // Привязываем функцию к событию изменения положения ползунка громкости
+        document.getElementById("volumeControl").addEventListener("input", function() {
+            audio.volume = this.value; // Устанавливаем громкость аудио в соответствии с положением ползунка
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
