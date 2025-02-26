@@ -121,6 +121,17 @@
             font-size: 20px;
         }
 
+        /* Уведомление для включения звука */
+        #click-to-play {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            color: #e0e0e0;
+            font-size: 14px;
+            z-index: 3;
+            opacity: 0.8;
+        }
+
         /* Медиа-запрос для мобильных устройств */
         @media only screen and (max-width: 600px) {
             #loading-text {
@@ -135,10 +146,15 @@
             .social-buttons a {
                 padding: 8px 16px;
             }
+
+            #click-to-play {
+                font-size: 12px;
+                bottom: 60px;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Иконки -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="loading-text">Loading</div>
@@ -149,6 +165,9 @@
         <a href="https://zelenka.guru/members/4608935/" target="_blank">Lolzteam</a>
     </div>
     <div id="start-soon">It's going to start soon...</div>
+
+    <!-- Уведомление для включения звука -->
+    <div id="click-to-play">Click anywhere to enable sound</div>
 
     <!-- Кнопка управления звуком -->
     <div id="audio-control" onclick="toggleAudio()">
@@ -164,9 +183,17 @@
     <script>
         const audio = document.getElementById('background-audio');
         const audioIcon = document.getElementById('audio-icon');
+        const clickToPlay = document.getElementById('click-to-play');
 
-        // Включаем музыку при загрузке страницы
-        audio.play();
+        // Включаем музыку после первого клика по странице
+        document.addEventListener('click', () => {
+            audio.play().then(() => {
+                console.log('Музыка воспроизводится');
+                clickToPlay.style.display = 'none'; // Скрываем уведомление
+            }).catch((error) => {
+                console.error('Ошибка воспроизведения:', error);
+            });
+        }, { once: true }); // Обработчик сработает только один раз
 
         // Функция для включения/выключения звука
         function toggleAudio() {
