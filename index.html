@@ -17,7 +17,7 @@
             align-items: center;
             flex-direction: column;
             color: #fff;
-            font-family: 'Cormorant Garamond', serif; /* Элегантный тонкий шрифт */
+            font-family: 'Cormorant Garamond', serif;
             position: relative;
             overflow: hidden;
         }
@@ -26,10 +26,10 @@
             font-size: 48px;
             text-transform: uppercase;
             letter-spacing: 5px;
-            font-weight: 300; /* Тонкий шрифт */
+            font-weight: 300;
             color: #e0e0e0;
             text-shadow: 0 0 10px rgba(224, 224, 224, 0.5), 0 0 20px rgba(224, 224, 224, 0.3);
-            z-index: 2; /* Чтобы текст был поверх эффекта */
+            z-index: 2;
         }
 
         .loader {
@@ -39,7 +39,7 @@
             width: 50px;
             height: 50px;
             animation: spin 1s linear infinite, glow 1.5s ease-in-out infinite alternate;
-            z-index: 2; /* Чтобы лоадер был поверх эффекта */
+            z-index: 2;
         }
 
         @keyframes spin {
@@ -57,7 +57,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            z-index: 2; /* Чтобы кнопки были поверх эффекта */
+            z-index: 2;
         }
 
         .social-buttons a {
@@ -84,7 +84,8 @@
             font-size: 14px;
             color: #666;
             animation: fade 3s infinite;
-            z-index: 2; /* Чтобы текст был поверх эффекта */
+            z-index: 2;
+            cursor: pointer;
         }
 
         @keyframes fade {
@@ -92,7 +93,6 @@
             50% { opacity: 1; }
         }
 
-        /* Медиа-запрос для мобильных устройств */
         @media only screen and (max-width: 600px) {
             #loading-text {
                 font-size: 36px;
@@ -108,7 +108,7 @@
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet"> <!-- Элегантный тонкий шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="loading-text">Loading</div>
@@ -117,33 +117,31 @@
         <a href="https://t.me/findmide" target="_blank">Telegram</a>
         <a href="https://vk.com/essenco" target="_blank">VKontakte</a>
         <a href="https://zelenka.guru/members/4608935/" target="_blank">Lolzteam</a>
+        <a href="https://t.me/embeint" target="_blank">My TG</a>
     </div>
-    <div id="start-soon">It's going to start soon...</div>
+    <div id="start-soon" onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">It's going to start soon...</div>
 
-    <!-- Добавляем мрачный трек -->
     <audio autoplay loop>
         <source src="https://www.myinstants.com/media/sounds/cyberpunk-2077-mix.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Подключаем particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Инициализация particles.js
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 80, // Количество частиц
+                    value: 80,
                     density: {
                         enable: true,
                         value_area: 800
                     }
                 },
                 color: {
-                    value: '#e0e0e0' // Цвет частиц
+                    value: '#e0e0e0'
                 },
                 shape: {
-                    type: 'circle', // Форма частиц
+                    type: 'circle',
                     stroke: {
                         width: 0,
                         color: '#000000'
@@ -153,7 +151,7 @@
                     }
                 },
                 opacity: {
-                    value: 0.5, // Прозрачность частиц
+                    value: 0.5,
                     random: false,
                     anim: {
                         enable: false,
@@ -163,7 +161,7 @@
                     }
                 },
                 size: {
-                    value: 3, // Размер частиц
+                    value: 3,
                     random: true,
                     anim: {
                         enable: false,
@@ -173,14 +171,14 @@
                     }
                 },
                 line_linked: {
-                    enable: true, // Соединительные линии
+                    enable: true,
                     distance: 150,
                     color: '#e0e0e0',
                     opacity: 0.4,
                     width: 1
                 },
                 move: {
-                    enable: true, // Движение частиц
+                    enable: true,
                     speed: 6,
                     direction: 'none',
                     random: false,
@@ -198,11 +196,11 @@
                 detect_on: 'canvas',
                 events: {
                     onhover: {
-                        enable: true, // Реакция на наведение мыши
+                        enable: true,
                         mode: 'repulse'
                     },
                     onclick: {
-                        enable: true, // Реакция на клик
+                        enable: true,
                         mode: 'push'
                     },
                     resize: true
@@ -222,7 +220,7 @@
                         speed: 3
                     },
                     repulse: {
-                        distance: 200, // Дистанция реакции на мышь
+                        distance: 200,
                         duration: 0.4
                     },
                     push: {
